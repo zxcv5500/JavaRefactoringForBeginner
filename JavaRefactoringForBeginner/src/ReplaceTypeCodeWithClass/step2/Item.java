@@ -1,10 +1,7 @@
 package ReplaceTypeCodeWithClass.step2;
 
 public class Item {
-	
-	public static final int TYPECODE_BOOK = ItemType.BOOK.getTypecode();
-	public static final int TYPECODE_DVD = ItemType.DVD.getTypecode();
-	public static final int TYPECODE_SOFTWARE = ItemType.SOFTWARE.getTypecode();
+	// #4 이제 안쓰는 int 분류타입 삭제 : public static final int TYPECODE_XXX = 0  
 	
 	private final ItemType _itemtype;
 	private final String _title;
