@@ -12,7 +12,8 @@ public class ItemType {
 	}
 	
 	public int getTypecode() { return _typecode; }
-	
+
+	/* #1 사용하지 않는 코드가 된 메소드는 제거한다.
 	public static ItemType getItemType(int typecode) {
 		switch (typecode) {
 			case 0: return BOOK;
@@ -21,5 +22,5 @@ public class ItemType {
 			default: return null;
 		}
 	}
-	
+	//*/
 }
