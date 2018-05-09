@@ -2,8 +2,8 @@ package ReplaceTypeCodeWithSubclasses.step1;
 
 public class ShapeRectangle extends Shape {
 
-	protected ShapeRectangle(int _typecode, int _startx, int _starty, int _endx, int _endy) {
-		super(_typecode, _startx, _starty, _endx, _endy);
+	protected ShapeRectangle(int typecode, int startx, int starty, int endx, int endy) {
+		super(typecode, startx, starty, endx, endy);
 	}
 
 	@Override

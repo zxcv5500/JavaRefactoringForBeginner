@@ -24,14 +24,15 @@ public class Shape {
 			throw new IllegalArgumentException("typecode = " + typecode);
 		}
 	}
+	
 	//*/
-	protected Shape(int _typecode, int _startx, int _starty, int _endx, int _endy) {
+	protected Shape(int typecode, int startx, int starty, int endx, int endy) {
 		super();
-		this._typecode = _typecode;
-		this._startx = _startx;
-		this._starty = _starty;
-		this._endx = _endx;
-		this._endy = _endy;
+		this._typecode = typecode;
+		this._startx = startx;
+		this._starty = starty;
+		this._endx = endx;
+		this._endy = endy;
 	}
 	
 	public int getTypecode() { return _typecode; }
