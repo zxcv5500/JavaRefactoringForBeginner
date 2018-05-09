@@ -15,18 +15,18 @@ public abstract class Shape {						// #2 기존 메서드 중 일부를 추상�
 	public static Shape createShape(int typecode, int startx, int starty, int endx, int endy) {
 		switch (typecode) {
 		case TYPECODE_LINE:
-			return new ShapeLine(typecode, startx, starty, endx, endy);
+			return new ShapeLine(startx, starty, endx, endy);
 		case TYPECODE_RECTANGLE:
-			return new ShapeRectangle(typecode, startx, starty, endx, endy);
+			return new ShapeRectangle(startx, starty, endx, endy);
 		case TYPECODE_OVAL:
-			return new ShapeOval(typecode, startx, starty, endx, endy);
+			return new ShapeOval(startx, starty, endx, endy);
 		default:
 			throw new IllegalArgumentException("typecode = " + typecode);
 		}
 	}
 	
 	//*/
-	protected Shape(int typecode, int startx, int starty, int endx, int endy) {
+	protected Shape(int startx, int starty, int endx, int endy) {				// #1 불필요한 분류 코드 삭제
 		super();
 //		this._typecode = typecode;		// #1 불필요한 분류 코드 삭제
 		this._startx = startx;

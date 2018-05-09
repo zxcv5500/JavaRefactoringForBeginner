@@ -2,8 +2,8 @@ package ReplaceTypeCodeWithSubclasses.step2;
 
 public class ShapeOval extends Shape {
 
-	protected ShapeOval(int typecode, int startx, int starty, int endx, int endy) {
-		super(typecode, startx, starty, endx, endy);
+	protected ShapeOval(int startx, int starty, int endx, int endy) {
+		super(startx, starty, endx, endy);
 	}
 
 	@Override

@@ -2,8 +2,8 @@ package ReplaceTypeCodeWithSubclasses.step2;
 
 public class ShapeLine extends Shape {
 
-	protected ShapeLine(int typecode, int startx, int starty, int endx, int endy) {
-		super(typecode, startx, starty, endx, endy);
+	protected ShapeLine(int startx, int starty, int endx, int endy) {
+		super(startx, starty, endx, endy);
 	}
 
 	@Override
