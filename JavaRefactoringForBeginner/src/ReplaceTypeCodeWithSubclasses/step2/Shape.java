@@ -1,17 +1,17 @@
 package ReplaceTypeCodeWithSubclasses.step2;
 
-public class Shape {
+public abstract class Shape {						// #2 기존 메서드 중 일부를 추상메서드로 만드니까 클래스도 추상 클래스로 변경해서 선언한다.
 	public static final int TYPECODE_LINE = 0;
 	public static final int TYPECODE_RECTANGLE = 1;
 	public static final int TYPECODE_OVAL = 2;
 	
-	private final int _typecode;
+//	private final int _typecode;		// #1 불필요한 분류 코드 삭제
 	private final int _startx;
 	private final int _starty;
 	private final int _endx;
 	private final int _endy;
 	
-	//* #2 분류 코드를 바탕으로 인스턴스를 작성하고 있다면 팩토리 메소드 작성
+	
 	public static Shape createShape(int typecode, int startx, int starty, int endx, int endy) {
 		switch (typecode) {
 		case TYPECODE_LINE:
@@ -28,28 +28,16 @@ public class Shape {
 	//*/
 	protected Shape(int typecode, int startx, int starty, int endx, int endy) {
 		super();
-		this._typecode = typecode;
+//		this._typecode = typecode;		// #1 불필요한 분류 코드 삭제
 		this._startx = startx;
 		this._starty = starty;
 		this._endx = endx;
 		this._endy = endy;
 	}
 	
-	public int getTypecode() { return _typecode; }
+	public abstract int getTypecode();		// #3 기존 클래스의 분류코드 게터 메서드를 추상 메서드로 만듦
 	
-	public String getName() {
-//		switch (_typecode) {		// #1 분류 코드를 캡슐화
-		switch (getTypecode()) {
-		case TYPECODE_LINE:
-			return "LINE";
-		case TYPECODE_RECTANGLE:
-			return "RECTANGLE";
-		case TYPECODE_OVAL:
-			return "OVAL";
-		default:
-			return null;
-		}
-	}
+	public abstract String getName();		// #3 기존 클래스의 분류코드 게터 메서드를 추상 메서드로 만듦
 
 	@Override
 	public String toString() {
@@ -59,35 +47,6 @@ public class Shape {
 				+ "(" + _endx + ", " + _endy + ") ]";
 	}
 	
-	public void draw() {
-//		switch (_typecode) {		// #1 분류 코드를 캡슐화
-		switch (getTypecode()) {
-		case TYPECODE_LINE:
-			drawLine();
-			break;
-		case TYPECODE_RECTANGLE:
-			drawRectangle();
-			break;
-		case TYPECODE_OVAL:
-			drawOval();
-			break;
-		default:
-			;
-		}
-	}
+	public abstract void draw();			// #3 기존 클래스의 분류코드 게터 메서드를 추상 메서드로 만듦
 	
-	private void drawLine() {
-		System.out.println("drawLine : " + this.toString());
-		// ...
-	}
-	
-	private void drawRectangle() {
-		System.out.println("drawRectangle : " + this.toString());
-		// ...
-	}
-	
-	private void drawOval() {
-		System.out.println("drawOval ; " + this.toString());
-		// ...
-	}
 }

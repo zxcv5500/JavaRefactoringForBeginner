@@ -15,7 +15,7 @@ public class ShapeLine extends Shape {
 	@Override
 	public String getName() {
 		// TODO Auto-generated method stub
-		return super.getName();
+		return "LINE";
 	}
 
 	@Override
