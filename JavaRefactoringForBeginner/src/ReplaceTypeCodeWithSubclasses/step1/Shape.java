@@ -11,6 +11,20 @@ public class Shape {
 	private final int _endx;
 	private final int _endy;
 	
+	//* #2 분류 코드를 바탕으로 인스턴스를 작성하고 있다면 팩토리 메소드 작성
+	public static Shape createShape(int typecode, int startx, int starty, int endx, int endy) {
+		switch (typecode) {
+		case TYPECODE_LINE:
+			return new ShapeLine(typecode, startx, starty, endx, endy);
+		case TYPECODE_RECTANGLE:
+			return new ShapeRectangle(typecode, startx, starty, endx, endy);
+		case TYPECODE_OVAL:
+			return new ShapeOval(typecode, startx, starty, endx, endy);
+		default:
+			throw new IllegalArgumentException("typecode = " + typecode);
+		}
+	}
+	//*/
 	protected Shape(int _typecode, int _startx, int _starty, int _endx, int _endy) {
 		super();
 		this._typecode = _typecode;
@@ -23,7 +37,8 @@ public class Shape {
 	public int getTypecode() { return _typecode; }
 	
 	public String getName() {
-		switch (_typecode) {
+//		switch (_typecode) {		// #1 분류 코드를 캡슐화
+		switch (getTypecode()) {
 		case TYPECODE_LINE:
 			return "LINE";
 		case TYPECODE_RECTANGLE:
@@ -44,7 +59,8 @@ public class Shape {
 	}
 	
 	public void draw() {
-		switch (_typecode) {
+//		switch (_typecode) {		// #1 분류 코드를 캡슐화
+		switch (getTypecode()) {
 		case TYPECODE_LINE:
 			drawLine();
 			break;
@@ -59,17 +75,17 @@ public class Shape {
 		}
 	}
 	
-	public void drawLine() {
+	private void drawLine() {
 		System.out.println("drawLine : " + this.toString());
 		// ...
 	}
 	
-	public void drawRectangle() {
+	private void drawRectangle() {
 		System.out.println("drawRectangle : " + this.toString());
 		// ...
 	}
 	
-	public void drawOval() {
+	private void drawOval() {
 		System.out.println("drawOval ; " + this.toString());
 		// ...
 	}
