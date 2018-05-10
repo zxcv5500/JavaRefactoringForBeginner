@@ -34,7 +34,8 @@ public class Logger {
 			/* 아무것도 하지 않음 */
 			break;
 		default:
-				System.out.println("Invalid state : " + _state);
+//				System.out.println("Invalid state : " + _state);
+				System.out.println("Invalid state : " + getState());		//#2 자기 캡슐화 필드 기법 적용
 		}
 	}
 	
