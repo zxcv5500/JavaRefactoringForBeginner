@@ -60,6 +60,8 @@ public class Shape {
 		case TYPECODE_OVAL:
 			drawOval();
 			break;
+		default:
+			;
 		}
 	}
 	
