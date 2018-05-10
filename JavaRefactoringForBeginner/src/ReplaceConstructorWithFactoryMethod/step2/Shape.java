@@ -11,12 +11,11 @@ public class Shape {
 	private final int _endx;
 	private final int _endy;
 	
-	// #1 생성자를 이용해서 객체를 만드는 팩토리 메서드를 만든다
 	public static Shape create(int typecode, int startx, int starty, int endx, int endy) {
 		return new Shape(typecode, startx, starty, endx, endy);
 	}
 	
-	public Shape(int typecode, int startx, int starty, int endx, int endy) {
+	private Shape(int typecode, int startx, int starty, int endx, int endy) {			// 생성자 접근성을 private로 만들어 다른 클래스들에서 이 물건을 생성할 때는 create메소드 사용을 강제한다.
 		_typecode = typecode;
 		_startx = startx;
 		_starty = starty;
