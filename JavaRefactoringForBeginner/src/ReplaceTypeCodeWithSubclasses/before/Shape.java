@@ -59,17 +59,17 @@ public class Shape {
 		}
 	}
 	
-	public void drawLine() {
+	private void drawLine() {
 		System.out.println("drawLine : " + this.toString());
 		// ...
 	}
 	
-	public void drawRectangle() {
+	private void drawRectangle() {
 		System.out.println("drawRectangle : " + this.toString());
 		// ...
 	}
 	
-	public void drawOval() {
+	private void drawOval() {
 		System.out.println("drawOval ; " + this.toString());
 		// ...
 	}
