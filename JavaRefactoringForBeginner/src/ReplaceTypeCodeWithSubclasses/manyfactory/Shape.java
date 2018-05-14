@@ -1,17 +1,18 @@
 package ReplaceTypeCodeWithSubclasses.manyfactory;
 
-public abstract class Shape {						// #2 기존 메서드 중 일부를 추상메서드로 만드니까 클래스도 추상 클래스로 변경해서 선언한다.
+public abstract class Shape {						
 	public static final int TYPECODE_LINE = 0;
 	public static final int TYPECODE_RECTANGLE = 1;
 	public static final int TYPECODE_OVAL = 2;
 	
-//	private final int _typecode;		// #1 불필요한 분류 코드 삭제
 	private final int _startx;
 	private final int _starty;
 	private final int _endx;
 	private final int _endy;
 	
+
 	
+	/* 팩토리 메서드를 한군데서 처리하지 않고 하나씩 따로 제공해 주고 사용하는 쪽에서 알아서 호출해서 쓰도록 바꾼다.
 	public static Shape createShape(int typecode, int startx, int starty, int endx, int endy) {
 		switch (typecode) {
 		case TYPECODE_LINE:
@@ -24,20 +25,34 @@ public abstract class Shape {						// #2 기존 메서드 중 일부를 추상�
 			throw new IllegalArgumentException("typecode = " + typecode);
 		}
 	}
+	//*/
+	
+	
+	public static Shape createShapeLine(int startx, int starty, int endx, int endy) {
+		return new ShapeLine(startx, starty, endx, endy);
+	}
+	
+	public static Shape createShapeRectangle(int startx, int starty, int endx, int endy) {
+		return new ShapeRectangle(startx, starty, endx, endy);
+	}
+	
+	public static Shape createShapeOval(int startx, int starty, int endx, int endy) {
+		return new ShapeOval(startx, starty, endx, endy);
+	}
+	
 	
 	//*/
-	protected Shape(int startx, int starty, int endx, int endy) {				// #1 불필요한 분류 코드 삭제
+	protected Shape(int startx, int starty, int endx, int endy) {
 		super();
-//		this._typecode = typecode;		// #1 불필요한 분류 코드 삭제
 		this._startx = startx;
 		this._starty = starty;
 		this._endx = endx;
 		this._endy = endy;
 	}
 	
-	public abstract int getTypecode();		// #3 기존 클래스의 분류코드 게터 메서드를 추상 메서드로 만듦
+	public abstract int getTypecode();		
 	
-	public abstract String getName();		// #3 기존 클래스의 분류코드 게터 메서드를 추상 메서드로 만듦
+	public abstract String getName();		
 
 	@Override
 	public String toString() {
@@ -47,6 +62,6 @@ public abstract class Shape {						// #2 기존 메서드 중 일부를 추상�
 				+ "(" + _endx + ", " + _endy + ") ]";
 	}
 	
-	public abstract void draw();			// #3 기존 클래스의 분류코드 게터 메서드를 추상 메서드로 만듦
+	public abstract void draw();
 	
 }
